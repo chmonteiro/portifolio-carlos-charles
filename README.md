@@ -73,7 +73,7 @@ Nenhuma credencial é necessária. Não há formulário de contato (o protótipo
 
 ## Publicação
 
-**GitHub Pages** (configurado): em *Settings → Pages → Build and deployment*, escolha **GitHub Actions**. Cada push na `main` roda lint, testes e build, e publica `dist/`. O `base: './'` no `vite.config.ts` faz o mesmo build funcionar em subpasta (`usuario.github.io/portfolio-carlos-charles/`) ou em domínio próprio.
+**GitHub Pages** (configurado): em *Settings → Pages → Build and deployment*, escolha **GitHub Actions**. Cada push na `main` roda lint, testes e build, e publica `dist/`. O `base: './'` no `vite.config.ts` faz o mesmo build funcionar em subpasta (`chmonteiro.github.io/portifolio-carlos-charles/`) ou em domínio próprio.
 
 **Vercel** (alternativa): importe o repositório; framework *Vite*, build `npm run build`, saída `dist`.
 
