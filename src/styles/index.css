@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/* Design tokens do protótipo v2 (págs. 03–04). Geram utilitários como bg-bg, text-accent, font-display. */
+@theme {
+  --color-bg: #0b0c10;
+  --color-surface: #16181f;
+  --color-line: #272a33;
+  --color-fg: #f5f5f2;
+  --color-muted: #a0a3ad;
+  --color-accent: #ff5c00;
+  --color-accent-soft: #ffa366;
+  --color-cool: #7cc4ff;
+
+  --font-display: 'Unbounded', system-ui, sans-serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Quebras do protótipo: 640px (HUD compacto) e 820px (2 colunas → 1). */
+  --breakpoint-hud: 640px;
+  --breakpoint-split: 820px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    @apply bg-accent text-bg;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Fundo do mapa: curvas de nível + brilho laranja (topo direito) e azul (embaixo à esquerda). */
+  .map-bg {
+    background:
+      radial-gradient(60% 50% at 100% 0%, rgb(255 92 0 / 0.16), transparent 70%),
+      radial-gradient(50% 45% at 0% 100%, rgb(124 196 255 / 0.08), transparent 70%),
+      repeating-radial-gradient(circle at 70% 30%, transparent 0 38px, rgb(160 163 173 / 0.07) 38px 39px),
+      var(--color-bg);
+    background-attachment: fixed;
+  }
+  /* Painéis de vidro: gradiente branco 3,5% → 1%, borda 1px --line, raio 18px. */
+  .glass {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.01));
+    border: 1px solid var(--color-line);
+    border-radius: 18px;
+  }
+  .bar-fill {
+    background: linear-gradient(90deg, var(--color-accent-soft), var(--color-accent));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
