@@ -39,9 +39,11 @@ export type PhaseId = (typeof phases)[number]['id']
 
 /* Parágrafos da bio. Trechos entre ** ficam em destaque laranja. */
 export const bio = [
-  'Fico entre os dados, o negócio e a tecnologia: transformo planilhas bagunçadas em indicadores confiáveis e ideias em sistemas que funcionam.',
-  'Na saúde pública, construí o ETL em Power Query que consolida as filas do sistema SIGA de **5 centrais de regulação**. Para clientes, desenvolvi uma plataforma web de indicadores comerciais com Python, FastAPI e dashboards, além de sites, landing pages e automações com Python e IA.',
-  'Próxima missão: crescer como Analista de Dados, BI, Negócios ou Automação.',
+  'Sou analista de dados e desenvolvedor em São Paulo. Fico entre os dados, o negócio e a tecnologia: transformo planilhas bagunçadas em indicadores confiáveis e ideias em sistemas que funcionam.',
+  'Na saúde pública, construí o ETL em Power Query que consolida as filas do sistema SIGA de **5 centrais de regulação** e automatizei o tratamento dos relatórios de cota do SIRESP, que viraram uma base única para analisar aproveitamento e absenteísmo.',
+  'Para clientes, desenvolvi a LS Plataform, uma plataforma web de indicadores comerciais: levei **7 consultas do Power Query** para Python + pandas, criei a API em FastAPI e os painéis com filtros, gráficos, mapa de faturamento por estado e exportação para Excel.',
+  'No desenvolvimento web, crio sites e landing pages do zero, como a da Veritus Tech, em React + Vite, e este portfólio, em React, TypeScript e Tailwind CSS.',
+  'Estou cursando Banco de Dados na Faculdade Descomplica. Próxima missão: crescer em análise de dados e desenvolvimento, em times de Dados, BI ou Desenvolvimento.',
 ]
 
 /* Valores 0–100. Pendente no PDF (pág. 17): são estimativas a validar. */
