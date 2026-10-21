@@ -1,7 +1,8 @@
 import type { InventoryItem } from '../../data/profile'
 import { ItemIcon } from './ItemIcon'
 
-const slotBase = 'aspect-square rounded-[14px]'
+// No celular os slots ficam mais baixos (4:3) para a grade não esticar a página.
+const slotBase = 'aspect-[4/3] rounded-[14px] hud:aspect-square'
 
 type Props = { item: InventoryItem; active: boolean; onSelect: () => void }
 

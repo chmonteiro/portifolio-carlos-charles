@@ -43,7 +43,7 @@ export function Hud() {
                     href={`#${p.id}`}
                     onClick={(e) => go(e, p.id)}
                     aria-current={current ? 'location' : undefined}
-                    className={`block rounded-full px-3 py-1.5 text-[13px] transition duration-150 ${
+                    className={`block rounded-full px-3 py-2.5 text-[13px] hud:py-1.5 transition duration-150 ${
                       current ? 'bg-fg font-semibold text-bg' : 'text-muted hover:text-fg'
                     }`}
                   >

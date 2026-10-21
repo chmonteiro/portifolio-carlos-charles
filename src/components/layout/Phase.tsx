@@ -5,7 +5,7 @@ import { Eyebrow } from '../ui/Eyebrow'
 type Props = { id: string; eyebrow: string; title?: ReactNode; children: ReactNode; className?: string }
 
 /* Uma fase = uma seção da página única. tabIndex -1 permite mover o foco ao navegar pelo HUD. */
-export function Phase({ id, eyebrow, title, children, className = 'py-24' }: Props) {
+export function Phase({ id, eyebrow, title, children, className = 'py-16 sm:py-24' }: Props) {
   return (
     <section id={id} tabIndex={-1} aria-labelledby={`${id}-title`} className={`outline-none ${className}`}>
       <motion.div

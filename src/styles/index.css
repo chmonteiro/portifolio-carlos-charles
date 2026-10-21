@@ -23,7 +23,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    /* Altura do HUD: duas linhas no celular, uma a partir de 640px. */
+    scroll-padding-top: 7.5rem;
+    @variant hud {
+      scroll-padding-top: 5rem;
+    }
     -webkit-text-size-adjust: 100%;
   }
   body {

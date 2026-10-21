@@ -56,7 +56,7 @@ export function Contact() {
           </Button>
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-[13px] font-bold transition duration-150 hover:border-muted"
+            className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-[13px] hud:py-2 font-bold transition duration-150 hover:border-muted"
           >
             <Mail aria-hidden className="size-3.5" /> Escrever
           </a>

@@ -68,7 +68,7 @@ export function Inventory() {
             aria-controls="inventario-painel"
             tabIndex={tab === i ? 0 : -1}
             onClick={() => changeTab(i)}
-            className={`rounded-full px-4 py-1.5 text-[13px] whitespace-nowrap transition duration-150 ${
+            className={`rounded-full px-4 py-2.5 text-[13px] hud:py-1.5 whitespace-nowrap transition duration-150 ${
               tab === i ? 'bg-fg font-semibold text-bg' : 'text-muted hover:text-fg'
             }`}
           >

@@ -6,7 +6,7 @@ import { Eyebrow } from '../ui/Eyebrow'
 /* Faixa final: "Jogar de novo" volta ao Início e fecha o loop do scroll. */
 export function EndBanner() {
   return (
-    <footer className="border-t border-line px-4 py-24 text-center">
+    <footer className="border-t border-line px-4 py-16 text-center sm:py-24">
       <div className="flex justify-center">
         <Eyebrow>Fim da demo</Eyebrow>
       </div>

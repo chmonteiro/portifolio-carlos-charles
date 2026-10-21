@@ -12,7 +12,7 @@ const variants: Record<Variant, string> = {
 }
 const sizes: Record<Size, string> = {
   md: 'px-6 py-3.5 text-[15px]',
-  sm: 'px-4 py-2 text-[13px]',
+  sm: 'px-4 py-2.5 text-[13px] hud:py-2',
 }
 
 const cls = (variant: Variant, size: Size, extra = '') => `${base} ${variants[variant]} ${sizes[size]} ${extra}`
