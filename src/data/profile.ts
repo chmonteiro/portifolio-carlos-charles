@@ -219,6 +219,15 @@ export const inventory: InventoryTab[] = [
       {
         items: [
           {
+            id: 'ls-plataform',
+            name: 'LS Plataform',
+            code: 'LS',
+            kind: 'Sistema web · Dados',
+            text: 'Plataforma web de indicadores comerciais. Importa os relatórios do ERP, consolida tudo em uma base única com Python + pandas (as consultas do Power Query do painel comercial portadas para código) e mostra os indicadores em telas com filtros, gráficos, mapa de faturamento por estado, notificações e exportação para Excel. Tem login com controle de acesso por perfil.',
+            chips: ['Python', 'pandas', 'FastAPI', 'Supabase', 'Tailwind CSS', 'Alpine.js', 'Chart.js'],
+            note: 'Sistema de cliente com login: código e acesso privados.',
+          },
+          {
             id: 'veritus',
             name: 'Veritus Tech',
             code: 'VT',

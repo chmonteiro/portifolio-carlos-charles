@@ -23,7 +23,7 @@ export function Slot({ item, active, onSelect }: Props) {
           {item.code}
         </span>
       )}
-      <span className="line-clamp-2 flex min-h-[2lh] items-start text-center text-xs leading-tight">{item.name}</span>
+      <span className="line-clamp-2 min-h-[2lh] text-center text-xs leading-tight">{item.name}</span>
     </button>
   )
 }
