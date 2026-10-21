@@ -31,7 +31,7 @@ export function Character() {
       <div className="grid gap-4 split:grid-cols-[320px_minmax(0,1fr)]">
         <Panel className="split:row-span-2">
           <div className="relative overflow-hidden rounded-2xl">
-            <img src={photo} alt="Foto de Carlos Charles" width={446} height={446} className="aspect-square w-full object-cover" />
+            <img src={photo} alt="Foto de Carlos Charles" width={640} height={640} className="aspect-square w-full object-cover" />
             <span aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bg/80 to-transparent" />
             <span className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-bg/80 px-2.5 py-1 font-mono text-[11px] text-cool">
               <span aria-hidden className="size-2 rounded-full bg-cool" />
