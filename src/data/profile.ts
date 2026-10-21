@@ -39,9 +39,9 @@ export type PhaseId = (typeof phases)[number]['id']
 
 /* Parágrafos da bio. Trechos entre ** ficam em destaque laranja. */
 export const bio = [
-  'Transformo planilhas bagunçadas em relatórios confiáveis e ideias em interfaces que funcionam.',
-  'Hoje trabalho com dados de saúde pública: construí o ETL em Power Query que consolida as filas do sistema SIGA de **5 centrais de regulação**. Em paralelo, atendo clientes como freelancer, criando sites e automações com Python e IA.',
-  'Próxima missão: crescer como Analista de Dados, BI ou Automação, de preferência na área da saúde.',
+  'Fico entre os dados, o negócio e a tecnologia: transformo planilhas bagunçadas em indicadores confiáveis e ideias em sistemas que funcionam.',
+  'Na saúde pública, construí o ETL em Power Query que consolida as filas do sistema SIGA de **5 centrais de regulação**. Para clientes, desenvolvi uma plataforma web de indicadores comerciais com Python, FastAPI e dashboards, além de sites, landing pages e automações com Python e IA.',
+  'Próxima missão: crescer como Analista de Dados, BI, Negócios ou Automação, de preferência na área da saúde.',
 ]
 
 /* Valores 0–100. Pendente no PDF (pág. 17): são estimativas a validar. */
