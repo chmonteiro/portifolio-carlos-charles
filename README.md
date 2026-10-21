@@ -2,7 +2,7 @@
 
 Meu portfólio pessoal. Aqui apresento quem sou, as tecnologias que uso e os projetos que desenvolvi como analista de dados e desenvolvedor web.
 
-**Acesse:** https://chmonteiro.github.io/portifolio-carlos-charles/
+**Acesse:** https://carlos-charles.vercel.app/
 
 ![Prévia do portfólio](public/og-image.jpg)
 

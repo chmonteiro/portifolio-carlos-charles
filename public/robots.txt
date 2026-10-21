@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chmonteiro.github.io/portifolio-carlos-charles/sitemap.xml
+Sitemap: https://carlos-charles.vercel.app/sitemap.xml
