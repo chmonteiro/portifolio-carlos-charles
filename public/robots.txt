@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chmonteiro.github.io/portifolio-carlos-charles/sitemap.xml
