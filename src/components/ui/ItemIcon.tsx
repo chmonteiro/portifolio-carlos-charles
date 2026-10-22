@@ -10,10 +10,9 @@ import type { IconKey } from '../../data/profile'
 
 /* Ícones oficiais (Devicon) importados como arquivos; SQL, Excel, Power BI e IA desenhados à mão. */
 const official: Partial<Record<IconKey, string[]>> = {
-  'html-css': [html5, css3],
+  web: [html5, css3, javascript],
   tailwind: [tailwind],
   react: [react],
-  javascript: [javascript],
   python: [python],
   git: [git],
   fastapi: [fastapi],
@@ -57,7 +56,7 @@ export function ItemIcon({ icon }: { icon: IconKey }) {
     return (
       <span className="flex h-[46px] items-center gap-1" aria-hidden>
         {srcs.map((src) => (
-          <img key={src} src={src} alt="" width={srcs.length > 1 ? 30 : 46} height={46} className="h-[38px] w-auto" />
+          <img key={src} src={src} alt="" width={srcs.length > 1 ? 30 : 46} height={46} className={srcs.length > 2 ? 'h-[28px] w-auto' : 'h-[38px] w-auto'} />
         ))}
       </span>
     )

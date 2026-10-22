@@ -114,10 +114,9 @@ export const webProjects: WebProject[] = [
 ]
 
 export type IconKey =
-  | 'html-css'
   | 'tailwind'
   | 'react'
-  | 'javascript'
+  | 'web'
   | 'python'
   | 'sql'
   | 'excel'
@@ -179,11 +178,11 @@ export const techGroups: { title: string; items: Tech[] }[] = [
         usedIn: [ref.ls],
       },
       {
-        id: 'javascript',
-        name: 'JavaScript + TypeScript',
+        id: 'web',
+        name: 'HTML, CSS e JavaScript',
         kind: 'Front-end',
-        icon: 'javascript',
-        text: 'Alpine.js e Chart.js nas telas da LS Plataform; TypeScript neste portfólio; interatividade das landing pages.',
+        icon: 'web',
+        text: 'Base de todos os sites: na Veritus Tech, CSS próprio com design tokens, sem framework; Alpine.js e Chart.js nas telas da LS Plataform; TypeScript neste portfólio.',
         usedIn: [ref.ls, ref.portfolio, ref.veritus, ref.beatriz],
       },
       {
@@ -201,14 +200,6 @@ export const techGroups: { title: string; items: Tech[] }[] = [
         icon: 'tailwind',
         text: 'Estilo da LS Plataform, com tema claro e escuro, e deste portfólio.',
         usedIn: [ref.ls, ref.portfolio],
-      },
-      {
-        id: 'html-css',
-        name: 'HTML + CSS',
-        kind: 'Front-end',
-        icon: 'html-css',
-        text: 'Base de todos os sites. Na Veritus Tech, CSS próprio com design tokens, sem framework.',
-        usedIn: [ref.veritus, ref.beatriz, ref.portfolio],
       },
     ],
   },
