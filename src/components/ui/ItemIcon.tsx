@@ -5,6 +5,7 @@ import react from 'devicon/icons/react/react-original.svg'
 import javascript from 'devicon/icons/javascript/javascript-original.svg'
 import python from 'devicon/icons/python/python-original.svg'
 import git from 'devicon/icons/git/git-original.svg'
+import fastapi from 'devicon/icons/fastapi/fastapi-original.svg'
 import type { IconKey } from '../../data/profile'
 
 /* Ícones oficiais (Devicon) importados como arquivos; SQL, Excel, Power BI e IA desenhados à mão. */
@@ -15,6 +16,7 @@ const official: Partial<Record<IconKey, string[]>> = {
   javascript: [javascript],
   python: [python],
   git: [git],
+  fastapi: [fastapi],
 }
 
 const drawn: Partial<Record<IconKey, React.ReactNode>> = {

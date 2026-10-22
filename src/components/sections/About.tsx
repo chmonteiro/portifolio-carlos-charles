@@ -1,6 +1,6 @@
 import photo from '../../assets/carlos-charles.webp'
-import { attributes, bio, missions, profile } from '../../data/profile'
-import { AttributeBar } from '../ui/AttributeBar'
+import { bio, education, missions, profile } from '../../data/profile'
+import { Chip } from '../ui/Chip'
 import { GroupTitle } from '../ui/Eyebrow'
 import { Panel } from '../ui/Panel'
 import { Phase } from '../layout/Phase'
@@ -24,10 +24,10 @@ const sheet = [
   ['Especialidade', profile.specialty],
 ]
 
-/* Fase 01: ficha do personagem, bio, atributos e diário de missões. */
-export function Character() {
+/* Fase 03: ficha do personagem, bio, formação e diário de missões. */
+export function About() {
   return (
-    <Phase id="personagem" eyebrow="Fase 01 · Personagem" title="Quem está jogando">
+    <Phase id="sobre" eyebrow="Fase 03 · Sobre" title="Quem está jogando">
       <div className="grid gap-4 split:grid-cols-[320px_minmax(0,1fr)]">
         <Panel className="split:row-span-2">
           <div className="relative overflow-hidden rounded-2xl">
@@ -59,12 +59,16 @@ export function Character() {
         </Panel>
 
         <Panel>
-          <GroupTitle>Atributos</GroupTitle>
-          <div className="mt-4 space-y-4">
-            {attributes.map((a) => (
-              <AttributeBar key={a.label} {...a} />
+          <GroupTitle>Formação</GroupTitle>
+          <p className="mt-4 font-display text-lg font-bold">{education.course}</p>
+          <p className="mt-1 text-[15px] text-muted">
+            {education.school} · {education.status}
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {education.chips.map((c) => (
+              <Chip key={c}>{c}</Chip>
             ))}
-          </div>
+          </ul>
         </Panel>
 
         <Panel className="split:col-span-2">

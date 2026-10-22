@@ -14,7 +14,7 @@ export function Hero() {
       const target = e.target as HTMLElement
       if (e.key !== 'Enter' || window.scrollY > 80 || target.closest('a, button, input, textarea')) return
       e.preventDefault()
-      scrollToPhase('personagem')
+      scrollToPhase('projetos')
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -34,7 +34,7 @@ export function Hero() {
       <p className="mt-7 max-w-[56ch] text-base leading-[1.6] text-muted sm:text-lg">{hero.text}</p>
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
-        <Button onClick={() => scrollToPhase('personagem')}>
+        <Button onClick={() => scrollToPhase('projetos')}>
           Iniciar jornada <Kbd>Enter</Kbd>
         </Button>
         <Button variant="secondary" onClick={() => scrollToPhase('contato')}>
@@ -42,7 +42,7 @@ export function Hero() {
         </Button>
       </div>
 
-      <ul className="mt-10 grid max-w-[620px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3" aria-label="Atalhos de fase">
+      <ul className="mt-10 grid max-w-[820px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3" aria-label="Atalhos de fase">
         {saves.map((p, i) => (
           <li key={p.id}>
             <a

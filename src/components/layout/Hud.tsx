@@ -6,12 +6,16 @@ import { WizardLogo } from '../ui/WizardLogo'
 
 const ids = phases.map((p) => p.id)
 
-/* HUD fixo: identidade, barra de XP (percentual do scroll) e navegação com a fase visível destacada. */
-export function Hud() {
-  const active = useActivePhase(ids) as PhaseId
+/* HUD fixo: identidade, barra de XP (percentual do scroll) e navegação com a fase visível destacada.
+   `current` fixa a fase destacada fora da página única (ex.: Projetos num estudo de caso). */
+export function Hud({ current }: { current?: PhaseId }) {
+  const observed = useActivePhase(ids) as PhaseId
+  const active = current ?? observed
   const xp = useScrollProgress()
 
   const go = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    // Fora da página única a seção não existe: o hash muda e o App volta para ela.
+    if (!document.getElementById(id)) return
     e.preventDefault()
     scrollToPhase(id)
     history.replaceState(null, '', `#${id}`)
@@ -34,7 +38,7 @@ export function Hud() {
         </div>
 
         <nav aria-label="Fases" className="w-full hud:ml-auto hud:w-auto">
-          <ul className="flex justify-between gap-1 hud:justify-end">
+          <ul className="-mx-1 flex justify-between overflow-x-auto hud:mx-0 hud:justify-end hud:gap-1">
             {phases.map((p) => {
               const current = active === p.id
               return (
@@ -43,7 +47,7 @@ export function Hud() {
                     href={`#${p.id}`}
                     onClick={(e) => go(e, p.id)}
                     aria-current={current ? 'location' : undefined}
-                    className={`block rounded-full px-3 py-2.5 text-[13px] hud:py-1.5 transition duration-150 ${
+                    className={`block rounded-full px-2 py-2.5 text-[13px] whitespace-nowrap hud:px-3 hud:py-1.5 transition duration-150 ${
                       current ? 'bg-fg font-semibold text-bg' : 'text-muted hover:text-fg'
                     }`}
                   >

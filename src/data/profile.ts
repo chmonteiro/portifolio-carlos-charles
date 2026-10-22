@@ -24,14 +24,15 @@ export const hero = {
   eyebrow: 'Portfólio · Temporada 2026',
   title: ['Dados', 'que viram'],
   titleAccent: 'decisão.',
-  text: 'Sou Carlos Charles, analista de dados e desenvolvedor em São Paulo. Automatizo relatórios, construo ETLs e crio interfaces web. Aperte iniciar e explore as fases.',
+  text: 'Sou Carlos Charles, analista de dados e desenvolvedor em São Paulo. Automatizo relatórios, construo ETLs e crio interfaces web. Aperte iniciar e veja os projetos.',
 }
 
 /* Ordem das fases = ordem das seções na página e no HUD. */
 export const phases = [
   { id: 'inicio', label: 'Início' },
-  { id: 'personagem', label: 'Personagem' },
-  { id: 'inventario', label: 'Inventário' },
+  { id: 'projetos', label: 'Projetos' },
+  { id: 'tecnologias', label: 'Tecnologias' },
+  { id: 'sobre', label: 'Sobre' },
   { id: 'contato', label: 'Contato' },
 ] as const
 
@@ -44,15 +45,6 @@ export const bio = [
   'Para clientes, desenvolvi a LS Plataform, uma plataforma web de indicadores comerciais: levei **7 consultas do Power Query** para Python + pandas, criei a API em FastAPI e os painéis com filtros, gráficos, mapa de faturamento por estado e exportação para Excel.',
   'No desenvolvimento web, crio sites e landing pages do zero, como a da Veritus Tech, em React + Vite, e este portfólio, em React, TypeScript e Tailwind CSS.',
   'Estou cursando Banco de Dados na Faculdade Descomplica. Próxima missão: crescer em análise de dados e desenvolvimento, em times de Dados, BI ou Desenvolvimento.',
-]
-
-/* Valores 0–100. Pendente no PDF (pág. 17): são estimativas a validar. */
-export const attributes = [
-  { label: 'Excel · Power Query', value: 90 },
-  { label: 'Python · pandas', value: 75 },
-  { label: 'JavaScript · HTML/CSS', value: 72 },
-  { label: 'Automação com IA', value: 70 },
-  { label: 'SQL', value: 55 },
 ]
 
 export type Mission = { when: string; active: boolean; org: string; text: string }
@@ -78,6 +70,49 @@ export const missions: Mission[] = [
   },
 ]
 
+export const education = {
+  course: 'Banco de Dados',
+  school: 'Faculdade Descomplica',
+  status: 'Graduação em andamento · 1º período',
+  chips: ['SQL', 'Modelagem de dados'],
+}
+
+/* Projetos citados como evidência. Estudos de caso abrem dentro do site; os demais, em nova aba. */
+export type ProjectRef = { name: string; href: string; external?: boolean }
+
+const ref = {
+  siresp: { name: 'Automação SIRESP', href: '#/projetos/siresp' },
+  ls: { name: 'LS Plataform', href: '#/projetos/ls-plataform' },
+  siga: { name: 'Filas do SIGA', href: '#/projetos/siga' },
+  veritus: { name: 'Veritus Tech', href: 'https://veritus-tech.vercel.app', external: true },
+  beatriz: { name: 'Portfólio Beatriz Tomagnini', href: 'https://portfolio-beatriz-tomagnini.vercel.app', external: true },
+  portfolio: { name: 'Este portfólio', href: 'https://github.com/chmonteiro/portifolio-carlos-charles', external: true },
+} satisfies Record<string, ProjectRef>
+
+/* Projetos web, sem estudo de caso: aparecem em "Outros projetos". */
+export type WebProject = { name: string; kind: string; text: string; stack: string[]; links: { label: string; href: string }[]; note?: string }
+
+export const webProjects: WebProject[] = [
+  {
+    name: 'Veritus Tech',
+    kind: 'Landing page',
+    text: 'Landing page de uma empresa de infraestrutura de TI em São Paulo: apresenta os serviços e conduz o visitante até o contato. Construída do zero, com tema escuro, layout responsivo e metadados para busca e redes sociais.',
+    stack: ['React', 'Vite', 'CSS'],
+    links: [
+      { label: 'Visitar site', href: 'https://veritus-tech.vercel.app' },
+      { label: 'Código', href: 'https://github.com/chmonteiro/Veritus-Tech' },
+    ],
+  },
+  {
+    name: 'Portfólio Beatriz Tomagnini',
+    kind: 'Landing page',
+    text: 'Landing page de portfólio para uma profissional de Jornalismo, Comunicação e Moda.',
+    stack: ['JavaScript'],
+    links: [{ label: 'Visitar site', href: 'https://portfolio-beatriz-tomagnini.vercel.app' }],
+    note: 'Código em repositório privado.',
+  },
+]
+
 export type IconKey =
   | 'html-css'
   | 'tailwind'
@@ -89,205 +124,112 @@ export type IconKey =
   | 'powerbi'
   | 'ia'
   | 'git'
+  | 'fastapi'
 
-export type ItemLink = { label: string; href: string; primary?: boolean }
+/* Cada tecnologia mostra como foi usada e em quais projetos: evidência no lugar de nota. */
+export type Tech = { id: string; name: string; kind: string; icon: IconKey; text: string; usedIn: ProjectRef[] }
 
-export type InventoryItem = {
-  id: string
-  name: string
-  kind: string
-  text: string
-  chips: string[]
-  /* Ícone oficial/desenhado (stacks) ou sigla em laranja (projetos, faculdade). */
-  icon?: IconKey
-  code?: string
-  links?: ItemLink[]
-  note?: string
-}
-
-export type InventoryTab = {
-  id: string
-  label: string
-  groups: { title?: string; items: InventoryItem[] }[]
-}
-
-export const inventory: InventoryTab[] = [
+export const techGroups: { title: string; items: Tech[] }[] = [
   {
-    id: 'stacks',
-    label: 'Stacks',
-    groups: [
+    title: 'Dados',
+    items: [
       {
-        title: 'Stacks web',
-        items: [
-          {
-            id: 'html-css',
-            name: 'HTML + CSS',
-            kind: 'Front-end',
-            icon: 'html-css',
-            text: 'Layouts responsivos e cuidadosos, do zero, sem depender de template.',
-            chips: ['HTML', 'CSS', 'Acessibilidade'],
-          },
-          {
-            id: 'tailwind',
-            name: 'Tailwind CSS',
-            kind: 'Front-end',
-            icon: 'tailwind',
-            text: 'Estilização utilitária para interfaces responsivas. É o framework de estilo deste portfólio.',
-            chips: ['Tailwind CSS', 'Design tokens', 'Responsivo'],
-          },
-          {
-            id: 'react',
-            name: 'React',
-            kind: 'Front-end',
-            icon: 'react',
-            text: 'Interfaces em componentes. Base deste portfólio e da landing page da Veritus Tech.',
-            chips: ['React', 'Vite', 'Componentes'],
-          },
-          {
-            id: 'javascript',
-            name: 'JavaScript',
-            kind: 'Front-end',
-            icon: 'javascript',
-            text: 'Interatividade no navegador: menus, abas, cópia para a área de transferência e animações.',
-            chips: ['JavaScript', 'DOM', 'TypeScript'],
-          },
-        ],
+        id: 'python',
+        name: 'Python',
+        kind: 'Dados · Automação',
+        icon: 'python',
+        text: 'Automação do SIRESP (cerca de 1.140 linhas, com pandas, openpyxl e BeautifulSoup) e o ETL da LS Plataform, que substituiu 7 consultas do Power Query.',
+        usedIn: [ref.siresp, ref.ls],
       },
       {
-        title: 'Análise de dados',
-        items: [
-          {
-            id: 'python',
-            name: 'Python',
-            kind: 'Dados · Automação',
-            icon: 'python',
-            text: 'Tratamento de bases com pandas e automações de planilhas e relatórios.',
-            chips: ['pandas', 'Automação', 'Relatórios'],
-          },
-          {
-            id: 'sql',
-            name: 'SQL',
-            kind: 'Dados',
-            icon: 'sql',
-            text: 'Consultas para extrair, filtrar e cruzar dados. Foco da graduação em Banco de Dados, em andamento.',
-            chips: ['SQL', 'Consultas', 'Modelagem'],
-          },
-          {
-            id: 'excel',
-            name: 'Excel + Power Query',
-            kind: 'Dados · ETL',
-            icon: 'excel',
-            text: 'Tratamento e consolidação de bases. Ferramenta do ETL que consolida as filas SIGA de 5 centrais de regulação.',
-            chips: ['Power Query M', 'Excel', 'ETL'],
-          },
-          {
-            id: 'powerbi',
-            name: 'Power BI',
-            kind: 'Dados · BI',
-            icon: 'powerbi',
-            text: 'Dashboards e relatórios visuais a partir de bases tratadas.',
-            chips: ['Power BI', 'Dashboards'],
-          },
-        ],
+        id: 'sql',
+        name: 'SQL',
+        kind: 'Dados · Banco',
+        icon: 'sql',
+        text: 'Migrações e regras de acesso no PostgreSQL (Supabase) da LS Plataform. Também é o foco da graduação em Banco de Dados.',
+        usedIn: [ref.ls],
       },
       {
-        title: 'Ferramentas',
-        items: [
-          {
-            id: 'ia',
-            name: 'Automação com IA',
-            kind: 'Ferramenta',
-            icon: 'ia',
-            text: 'IA como apoio para acelerar automações, código e documentação dos projetos.',
-            chips: ['IA', 'Automação', 'Produtividade'],
-          },
-          {
-            id: 'git',
-            name: 'Git + GitHub',
-            kind: 'Ferramenta',
-            icon: 'git',
-            text: 'Versionamento e publicação dos projetos.',
-            chips: ['Git', 'GitHub', 'Vercel'],
-            links: [{ label: 'Ver GitHub', href: 'https://github.com/chmonteiro', primary: true }],
-          },
-        ],
+        id: 'excel',
+        name: 'Excel + Power Query',
+        kind: 'Dados · ETL',
+        icon: 'excel',
+        text: 'ETL em Power Query (M) que consolida as filas do SIGA; origem das 7 consultas migradas na LS Plataform; saída formatada da automação do SIRESP.',
+        usedIn: [ref.siga, ref.ls, ref.siresp],
+      },
+      {
+        id: 'powerbi',
+        name: 'Power BI',
+        kind: 'Dados · BI',
+        icon: 'powerbi',
+        text: 'Dashboards e relatórios visuais. Ainda não há estudo de caso publicado com Power BI.',
+        usedIn: [],
       },
     ],
   },
   {
-    id: 'projetos',
-    label: 'Projetos',
-    groups: [
+    title: 'Desenvolvimento',
+    items: [
       {
-        items: [
-          {
-            id: 'ls-plataform',
-            name: 'LS Plataform',
-            code: 'LS',
-            kind: 'Sistema web · Dados',
-            text: 'Plataforma web de indicadores comerciais. Importa os relatórios do ERP, consolida tudo em uma base única com Python + pandas (as consultas do Power Query do painel comercial portadas para código) e mostra os indicadores em telas com filtros, gráficos, mapa de faturamento por estado, notificações e exportação para Excel. Tem login com controle de acesso por perfil.',
-            chips: ['Python', 'pandas', 'FastAPI', 'Supabase', 'Tailwind CSS', 'Alpine.js', 'Chart.js'],
-            note: 'Sistema de cliente com login: código e acesso privados.',
-          },
-          {
-            id: 'veritus',
-            name: 'Veritus Tech',
-            code: 'VT',
-            kind: 'Landing page',
-            text: 'Landing page da Veritus Tech, empresa de São Paulo de infraestrutura de TI, suporte técnico, segurança e desenvolvimento web para pequenas e médias empresas. Apresenta os serviços, reforça a credibilidade da marca e conduz o visitante até o contato. Construída do zero em React + Vite com CSS próprio, tema escuro, layout responsivo e metadados para busca e redes sociais.',
-            chips: ['React', 'Vite', 'CSS', 'Vercel'],
-            links: [
-              { label: 'Visitar site', href: 'https://veritus-tech.vercel.app', primary: true },
-              { label: 'Código', href: 'https://github.com/chmonteiro/Veritus-Tech' },
-            ],
-          },
-          {
-            id: 'beatriz',
-            name: 'Portfólio Beatriz Tomagnini',
-            code: 'BT',
-            kind: 'Landing page',
-            text: 'Landing page de portfólio de Beatriz Tomagnini, profissional de Jornalismo, Comunicação e Moda.',
-            chips: ['JavaScript', 'Vercel'],
-            links: [{ label: 'Visitar site', href: 'https://portfolio-beatriz-tomagnini.vercel.app', primary: true }],
-            note: 'Código em repositório privado.',
-          },
-          {
-            id: 'siresp',
-            name: 'Automação de relatórios de saúde',
-            code: 'SUS',
-            kind: 'Automação · Dados',
-            text: 'Tratamento e consolidação dos relatórios de cota de consultas e exames do SIRESP em uma base única, pronta para analisar aproveitamento e absenteísmo.',
-            chips: ['Automação', 'Excel', 'Saúde'],
-            note: 'Projeto interno: sem link público.',
-          },
-          {
-            id: 'siga',
-            name: 'Consolidação das filas SIGA',
-            code: 'ETL',
-            kind: 'ETL · Power Query',
-            text: 'ETL em Power Query (M) que consolida as filas do sistema SIGA de 5 centrais de regulação em uma base única para relatórios.',
-            chips: ['Power Query M', 'Excel', 'ETL'],
-            note: 'Projeto interno: sem link público.',
-          },
-        ],
+        id: 'fastapi',
+        name: 'FastAPI',
+        kind: 'Back-end',
+        icon: 'fastapi',
+        text: 'API da LS Plataform, com controle de acesso por perfil validado na API e no banco.',
+        usedIn: [ref.ls],
+      },
+      {
+        id: 'javascript',
+        name: 'JavaScript + TypeScript',
+        kind: 'Front-end',
+        icon: 'javascript',
+        text: 'Alpine.js e Chart.js nas telas da LS Plataform; TypeScript neste portfólio; interatividade das landing pages.',
+        usedIn: [ref.ls, ref.portfolio, ref.veritus, ref.beatriz],
+      },
+      {
+        id: 'react',
+        name: 'React',
+        kind: 'Front-end',
+        icon: 'react',
+        text: 'Componentes da landing page da Veritus Tech e deste portfólio.',
+        usedIn: [ref.veritus, ref.portfolio],
+      },
+      {
+        id: 'tailwind',
+        name: 'Tailwind CSS',
+        kind: 'Front-end',
+        icon: 'tailwind',
+        text: 'Estilo da LS Plataform, com tema claro e escuro, e deste portfólio.',
+        usedIn: [ref.ls, ref.portfolio],
+      },
+      {
+        id: 'html-css',
+        name: 'HTML + CSS',
+        kind: 'Front-end',
+        icon: 'html-css',
+        text: 'Base de todos os sites. Na Veritus Tech, CSS próprio com design tokens, sem framework.',
+        usedIn: [ref.veritus, ref.beatriz, ref.portfolio],
       },
     ],
   },
   {
-    id: 'faculdade',
-    label: 'Faculdade',
-    groups: [
+    title: 'Ferramentas',
+    items: [
       {
-        items: [
-          {
-            id: 'banco-de-dados',
-            name: 'Banco de Dados',
-            code: 'DB',
-            kind: 'Graduação · Faculdade Descomplica',
-            text: 'Graduação em Banco de Dados, em andamento (1º período).',
-            chips: ['SQL', 'Modelagem', 'Em curso'],
-          },
-        ],
+        id: 'ia',
+        name: 'Automação com IA',
+        kind: 'Ferramenta',
+        icon: 'ia',
+        text: 'A automação do SIRESP também roda como skill de agente de IA, com as regras e validações documentadas.',
+        usedIn: [ref.siresp],
+      },
+      {
+        id: 'git',
+        name: 'Git + GitHub',
+        kind: 'Ferramenta',
+        icon: 'git',
+        text: 'Versionamento, pull requests e deploy automático dos projetos.',
+        usedIn: [ref.ls, ref.portfolio, ref.veritus],
       },
     ],
   },

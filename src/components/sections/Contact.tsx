@@ -21,7 +21,7 @@ function Portal({ glyph, title, handle, children }: { glyph: string; title: stri
   )
 }
 
-/* Fase 03: portais de contato. Sem formulário: os canais são LinkedIn, GitHub e e-mail direto. */
+/* Fase 04: portais de contato. Sem formulário: os canais são LinkedIn, GitHub e e-mail direto. */
 export function Contact() {
   const [copy, setCopy] = useState<CopyState>('idle')
   const emailRef = useRef<HTMLSpanElement>(null)
@@ -33,7 +33,7 @@ export function Contact() {
   }
 
   return (
-    <Phase id="contato" eyebrow="Fase 03 · Contato" title="Bora formar uma equipe?">
+    <Phase id="contato" eyebrow="Fase 04 · Contato" title="Bora formar uma equipe?">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
         <Portal glyph="in" title="LinkedIn" handle="linkedin.com/in/carlos-charles">
           <ExternalLink href={links.linkedin}>Abrir perfil</ExternalLink>
