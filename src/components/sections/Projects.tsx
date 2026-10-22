@@ -8,14 +8,16 @@ import { GroupTitle } from '../ui/Eyebrow'
 import { Panel } from '../ui/Panel'
 import { Phase } from '../layout/Phase'
 
-/* Fase 01: estudos de caso em destaque e, abaixo, os projetos web. */
+/* Fase 01: estudos de caso em destaque e, abaixo, os projetos web.
+   Os cards usam subgrid: cada faixa (título, resumo, evidência, tecnologias, link)
+   fica na mesma altura em todos os cards da fileira, mesmo com textos de tamanhos diferentes. */
 export function Projects() {
   return (
     <Phase id="projetos" eyebrow="Fase 01 · Projetos" title="Projetos que resolvem problemas reais">
       <ul className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
         {cases.map((c) => (
-          <li key={c.slug}>
-            <Panel className="flex h-full flex-col">
+          <li key={c.slug} className="row-span-7 grid grid-rows-subgrid gap-y-0">
+            <Panel className="row-span-7 grid grid-rows-subgrid">
               <div className="flex items-center justify-between gap-3">
                 <span aria-hidden className="font-display text-xl font-extrabold text-accent">
                   {c.code}
@@ -31,14 +33,14 @@ export function Projects() {
                 <span className="font-display text-2xl font-extrabold text-fg">{c.proofs[0].value}</span>
                 <span className="text-sm text-muted">{c.proofs[0].label}</span>
               </p>
-              <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tecnologias">
+              <ul className="mt-4 flex flex-wrap content-start gap-2" aria-label="Tecnologias">
                 {c.stack.slice(0, 4).map((s) => (
                   <Chip key={s}>{s}</Chip>
                 ))}
               </ul>
               <a
                 href={caseHref(c.slug)}
-                className="mt-auto inline-flex items-center gap-2 self-start pt-6 text-[15px] font-bold text-accent transition duration-150 hover:gap-3"
+                className="inline-flex items-center gap-2 self-start pt-6 text-[15px] font-bold text-accent transition duration-150 hover:gap-3"
               >
                 Ver estudo de caso <ArrowRight aria-hidden className="size-4" />
                 <span className="sr-only">: {c.title}</span>
@@ -52,24 +54,26 @@ export function Projects() {
         <GroupTitle as="h3">Outros projetos · Web</GroupTitle>
         <ul className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
           {webProjects.map((p) => (
-            <li key={p.name}>
-              <Panel className="flex h-full flex-col">
+            <li key={p.name} className="row-span-5 grid grid-rows-subgrid gap-y-0">
+              <Panel className="row-span-5 grid grid-rows-subgrid">
                 <p className="font-mono text-[11px] tracking-[.12em] text-cool uppercase">{p.kind}</p>
                 <h4 className="mt-2 font-display text-base font-bold">{p.name}</h4>
                 <p className="mt-2 text-[15px] leading-[1.6] text-muted">{p.text}</p>
-                <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tecnologias">
+                <ul className="mt-4 flex flex-wrap content-start gap-2" aria-label="Tecnologias">
                   {p.stack.map((s) => (
                     <Chip key={s}>{s}</Chip>
                   ))}
                 </ul>
-                <div className="mt-auto flex flex-wrap gap-2 pt-5">
-                  {p.links.map((l, i) => (
-                    <ExternalLink key={l.href} href={l.href} variant={i === 0 ? 'primary' : 'secondary'}>
-                      {l.label}
-                    </ExternalLink>
-                  ))}
+                <div className="pt-5">
+                  <div className="flex flex-wrap gap-2">
+                    {p.links.map((l, i) => (
+                      <ExternalLink key={l.href} href={l.href} variant={i === 0 ? 'primary' : 'secondary'}>
+                        {l.label}
+                      </ExternalLink>
+                    ))}
+                  </div>
+                  {p.note && <p className="mt-3 font-mono text-[11px] text-muted">{p.note}</p>}
                 </div>
-                {p.note && <p className="mt-3 font-mono text-[11px] text-muted">{p.note}</p>}
               </Panel>
             </li>
           ))}
