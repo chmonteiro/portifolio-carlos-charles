@@ -51,7 +51,7 @@ export function Technologies() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.15 }}
             >
-              <p className="font-mono text-[10px] font-medium tracking-[.12em] text-cool uppercase">{selected.kind}</p>
+              <p className="font-mono text-[11px] font-medium tracking-[.12em] text-cool uppercase">{selected.kind}</p>
               <h3 className="mt-2 font-display text-[clamp(18px,2.4vw,24px)] font-bold">{selected.name}</h3>
               <p className="mt-3 text-[15px] leading-[1.6] text-muted">{selected.text}</p>
               <h4 className="mt-5 font-mono text-[11px] tracking-[.12em] text-muted uppercase">Onde usei</h4>

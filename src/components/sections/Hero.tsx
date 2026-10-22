@@ -42,7 +42,7 @@ export function Hero() {
         </Button>
       </div>
 
-      <ul className="mt-10 grid max-w-[820px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3" aria-label="Atalhos de fase">
+      <ul className="mt-10 grid max-w-[820px] grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]" aria-label="Atalhos de fase">
         {saves.map((p, i) => (
           <li key={p.id}>
             <a
@@ -53,7 +53,7 @@ export function Hero() {
               }}
               className="glass block px-4 py-3 transition duration-150 hover:border-accent"
             >
-              <span className="block font-mono text-[10px] tracking-[.12em] text-muted uppercase">Fase 0{i + 1}</span>
+              <span className="block font-mono text-[11px] tracking-[.12em] text-muted uppercase">Fase 0{i + 1}</span>
               <span className="mt-1 block font-display text-sm font-bold">{p.label}</span>
             </a>
           </li>

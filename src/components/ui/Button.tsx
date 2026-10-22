@@ -36,5 +36,5 @@ export function ExternalLink({ variant = 'primary', size = 'sm', children, class
 
 /* Tecla de atalho exibida dentro do botão primário. */
 export const Kbd = ({ children }: { children: ReactNode }) => (
-  <kbd className="rounded-md border border-bg/40 px-1.5 py-0.5 font-mono text-[10px] font-medium">{children}</kbd>
+  <kbd className="rounded-md border border-bg/40 px-1.5 py-0.5 font-mono text-[10px] font-medium pointer-coarse:hidden">{children}</kbd>
 )

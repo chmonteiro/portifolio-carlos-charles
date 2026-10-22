@@ -8,7 +8,7 @@ import { Pipeline } from '../components/case/Pipeline'
 import { Chip } from '../components/ui/Chip'
 import { Eyebrow } from '../components/ui/Eyebrow'
 
-const backLink = 'inline-flex items-center gap-2 rounded-full py-2 text-sm font-bold text-muted transition duration-150 hover:text-fg'
+const backLink = 'inline-flex items-center gap-2 rounded-full py-2.5 text-sm font-bold text-muted transition duration-150 hover:text-fg'
 
 /* Página de estudo de caso: mesmo roteiro editorial para todos os projetos.
    Seções sem conteúdo comprovado não aparecem; o que falta fica listado em "Pendências". */

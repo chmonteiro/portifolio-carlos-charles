@@ -21,10 +21,10 @@ export function Projects() {
                   {c.code}
                 </span>
                 {c.status === 'documentacao' && (
-                  <span className="rounded-full border border-cool/40 px-2.5 py-1 font-mono text-[10px] text-cool uppercase">Em documentação</span>
+                  <span className="rounded-full border border-cool/40 px-2.5 py-1 font-mono text-[11px] text-cool uppercase">Em documentação</span>
                 )}
               </div>
-              <p className="mt-4 font-mono text-[10px] tracking-[.12em] text-cool uppercase">{c.kind}</p>
+              <p className="mt-4 font-mono text-[11px] tracking-[.12em] text-cool uppercase">{c.kind}</p>
               <h3 className="mt-2 font-display text-lg leading-snug font-bold">{c.title}</h3>
               <p className="mt-3 text-[15px] leading-[1.6] text-muted">{c.summary}</p>
               <p className="mt-5 flex items-baseline gap-3 border-t border-line pt-4">
@@ -54,7 +54,7 @@ export function Projects() {
           {webProjects.map((p) => (
             <li key={p.name}>
               <Panel className="flex h-full flex-col">
-                <p className="font-mono text-[10px] tracking-[.12em] text-cool uppercase">{p.kind}</p>
+                <p className="font-mono text-[11px] tracking-[.12em] text-cool uppercase">{p.kind}</p>
                 <h4 className="mt-2 font-display text-base font-bold">{p.name}</h4>
                 <p className="mt-2 text-[15px] leading-[1.6] text-muted">{p.text}</p>
                 <ul className="mt-4 flex flex-wrap gap-2" aria-label="Tecnologias">

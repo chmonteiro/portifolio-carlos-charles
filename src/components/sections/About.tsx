@@ -81,7 +81,7 @@ export function About() {
                   className={`mt-1 size-2.5 shrink-0 rounded-full ${m.active ? 'bg-cool' : 'border-[1.5px] border-muted'}`}
                 />
                 <div>
-                  <p className="font-mono text-[10px] tracking-[.12em] text-muted uppercase">{m.when}</p>
+                  <p className="font-mono text-[11px] tracking-[.12em] text-muted uppercase">{m.when}</p>
                   <p className="mt-1 text-[15px] leading-[1.5]">
                     <strong className="font-bold">{m.org}</strong> · {m.text}
                   </p>
